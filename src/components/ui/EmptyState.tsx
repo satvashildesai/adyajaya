@@ -1,11 +1,12 @@
+import type { ReactNode } from "react";
 import { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
 
 export interface EmptyStateProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   title: string;
   description: string;
-  action?: React.ReactNode;
+  action?: ReactNode;
 }
 
 export function EmptyState({ icon, title, description, action, className, ...props }: EmptyStateProps) {
