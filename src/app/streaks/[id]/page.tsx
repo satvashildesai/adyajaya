@@ -1,8 +1,23 @@
-export default function StreakDetailPage({ params }: { params: { id: string } }) {
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Streak Detail</h1>
-      <p>Viewing details for streak: {params.id}</p>
-    </div>
-  );
+import { getMockStreakDetail } from "@/lib/mock/streaks";
+import { StreakDetailView } from "@/components/streak/StreakDetailView";
+import type { Metadata } from "next";
+
+interface Props {
+  params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const streak = getMockStreakDetail(id);
+  return {
+    title: `${streak.name} | Streak Tracker`,
+    description: streak.description,
+  };
+}
+
+export default async function StreakDetailPage({ params }: Props) {
+  const { id } = await params;
+  const streak = getMockStreakDetail(id);
+
+  return <StreakDetailView streak={streak} />;
 }

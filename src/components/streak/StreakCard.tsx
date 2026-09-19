@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressBar } from "@/components/ui/ProgressBar";
@@ -66,9 +67,11 @@ export function StreakCard({ streak }: StreakCardProps) {
               <Icon className="h-5 w-5" />
             </div>
             <div className="min-w-0">
-              <h3 className="font-semibold text-foreground leading-tight truncate">
-                {streak.name}
-              </h3>
+              <Link href={`/streaks/${streak.id}`}>
+                <h3 className="font-semibold text-foreground leading-tight truncate hover:text-primary transition-colors cursor-pointer">
+                  {streak.name}
+                </h3>
+              </Link>
               <div className="flex items-center gap-1 mt-0.5">
                 <Flame
                   className={cn(
