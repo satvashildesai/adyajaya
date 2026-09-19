@@ -1,8 +1,27 @@
-export default function MilestonePage({ params }: { params: { id: string } }) {
-  return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4 text-center text-yellow-500">Milestone Reached!</h1>
-      <p className="text-center">Congratulations on hitting a milestone for streak: {params.id}</p>
-    </div>
-  );
+import type { Metadata } from "next";
+import { getMockStreakDetail } from "@/lib/mock/streaks";
+import { MilestoneCelebrationView } from "@/components/streak/MilestoneCelebrationView";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const streak = getMockStreakDetail(id);
+  return {
+    title: `Milestone Celebration - ${streak.name} | Streak Tracker`,
+    description: `Congratulations on reaching your milestone for ${streak.name}!`,
+  };
+}
+
+export default async function MilestonePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const streak = getMockStreakDetail(id);
+
+  return <MilestoneCelebrationView streak={streak} />;
 }
