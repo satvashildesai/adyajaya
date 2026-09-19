@@ -1,4 +1,4 @@
-import { mockStreaks } from "@/lib/mock/streaks";
+import { mockStreaks, mockUser } from "@/lib/mock";
 import { StreakCard } from "@/components/streak/StreakCard";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
@@ -16,6 +16,8 @@ const completedToday = mockStreaks.filter((s) => s.completedToday).length;
 const totalStreaks = mockStreaks.length;
 
 export default function HomePage() {
+  const user = mockUser;
+
   return (
     <div className="min-h-screen pb-24 md:pb-8">
       <div className="max-w-2xl mx-auto px-4 pt-6 md:pt-10 space-y-6">
@@ -24,14 +26,16 @@ export default function HomePage() {
         <header className="flex items-center justify-between">
           <div>
             <p className="text-sm text-muted-foreground font-medium mb-0.5">
-              {getGreeting()} 👋
+              {getGreeting()}, {user.name.split(" ")[0]} 👋
             </p>
             <h1 className="text-2xl font-bold tracking-tight text-foreground">
               Win today.
             </h1>
           </div>
           <div className="h-10 w-10 rounded-full bg-primary/15 ring-2 ring-primary/20 flex items-center justify-center">
-            <span className="text-sm font-bold text-primary">U</span>
+            <span className="text-sm font-bold text-primary">
+              {user.name.charAt(0)}
+            </span>
           </div>
         </header>
 
