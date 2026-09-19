@@ -42,7 +42,7 @@ export interface Streak {
 
 /** Single completion record */
 export interface StreakCompletion {
-  id: string;
+  id?: string;
   streakId: string;
   date: string; // "YYYY-MM-DD"
   completed: boolean;
@@ -63,7 +63,7 @@ export interface Achievement {
   name: string;
   description: string;
   requiredDays: number;
-  requiredStreak: number; // Non-optional alias for requiredDays
+  requiredStreak: number;
   unlocked: boolean;
   unlockedAt?: string;
   emoji: string;
