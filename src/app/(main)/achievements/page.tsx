@@ -1,8 +1,12 @@
+import type { Metadata } from "next";
+import { mockAchievementsData } from "@/lib/mock/achievements";
+import { AchievementsView } from "@/components/achievements/AchievementsView";
+
+export const metadata: Metadata = {
+  title: "Achievements | Streak Tracker",
+  description: "View unlocked streak milestones, rewards, and upcoming achievement goals.",
+};
+
 export default function AchievementsPage() {
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Achievements</h1>
-      <p>Your unlocked achievements.</p>
-    </div>
-  );
+  return <AchievementsView data={mockAchievementsData} />;
 }
