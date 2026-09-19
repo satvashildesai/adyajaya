@@ -22,6 +22,10 @@
   --card-foreground: #18181b;
   --card-border: #e4e4e7;
 
+  /* Destructive - Rose */
+  --destructive: #e11d48; /* rose-600 */
+  --destructive-foreground: #ffffff;
+
   /* Radius */
   --radius: 0.75rem; /* xl for modern feel */
 }
@@ -37,6 +41,8 @@
   --color-primary-hover: var(--primary-hover);
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-card-border: var(--card-border);
@@ -61,6 +67,10 @@
     /* Success - Emerald */
     --success: #10b981; /* emerald-500 */
     --success-foreground: #ffffff;
+
+    /* Destructive - Rose */
+    --destructive: #fb7185; /* rose-400 */
+    --destructive-foreground: #ffffff;
 
     /* Card */
     --card: #09090b;
